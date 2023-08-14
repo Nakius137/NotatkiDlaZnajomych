@@ -1,0 +1,24 @@
+git init - inicjalizacja repo
+git remote add linkDoRepo - powiazanie twojego remote (lokalnego) repo, z repo w githubie
+git commit -m "rodzaj commitu: opis commitu" - dajesz comit, flaga -m oznacza ze dajesz wiadomosc do comitu 
+git push - pushujesz do repo (do aktualnego brancha na ktorym pracujesz)
+git push origin master - pushujesz do repo master
+git push --force - jak wszystko zawiedzie, NIGDY nie stosuj tego w pracy xD
+git branch - wyświetla wszystkie gałęzie w twoim repo
+git branch develop - tworzysz nowego brancha develop
+git checkout develop - przechodzisz na branch develop
+git log - pokazuje ci historie twoich commitow w repo
+git stash/git stash pop - daje twoje lokalne i niescomittowane zmiany do stosu, potem jak uzyjesz git stash pop to przywraca je ze stosu do twojego remote repo
+git pull - jesli ktos zrobil zmiany (dal pusha/zrobil merge) do repo na ktorym pracujesz, to dzieki tej komendzie pullujesz (sciągasz) najnowsze zmiany z repo
+git clone LinkDoRepo - tworzysz u siebie nową instancje repo (czyli jak robiles na kompie, a chcesz na laptopie, to nie git pull, bo nie ściągasz zmian, a git clone, bo klonujesz całkowiecie i nowe repo do swojego lokalnego środowiska)
+git add NazwaPikuDoDodania - dodajesz plik do "stage", czyli do obszaru gdzie git śledzi (wykrywa zaminy) twoje pliki. Jak chcesz dodać wszystkie zmiany to walisz po prostu "git add ." i tyle
+git status - wyświetla ci status które pliki są śledzone, a które nie (z tych które zostały dodane/usunięte/zmodyfikowane, w porównaniu do twojeLokalneŚrodowisko - ŚrodowiskoWRepo)
+git merge - łączysz dwie gałęzie w jedno. Poczytaj sobie o git workflow. U nas działa to tak że mamy ticekta (zadanie) np. BB-2137, więc "odbijasz" od developa, czyli tworzysz nową gałąż z developa, a po skończeniu taska, robisz tzw. Pull Requesta (taka pierdoła) i potem jak przejdzie, to mergujesz twój branch np develop/BB-2137, z branchem /develop.
+
+spoko linki
+https://www.atlassian.com/git/tutorials/comparing-workflows
+https://nvie.com/posts/a-successful-git-branching-model/                      <- Tu masz fajne diagramy które pomogą ci in-depth zrozumieć
+https://buddy.works/blog/5-types-of-git-workflows
+https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716
+https://dev.to/mollynem/git-github--workflow-fundamentals-5496                      <- Tu ci fajnie wytłumaczy o co chodzi z tym remote/lokalne środowisko
+https://www.udemy.com/course/kurs-git-i-github-od-podstaw/                <- Ten free kurs do gita od samuraja
