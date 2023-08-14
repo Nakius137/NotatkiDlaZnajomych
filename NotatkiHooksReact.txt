@@ -1,0 +1,134 @@
+import React, {
+  useState,
+  useReducer,
+  useEffect,
+  useRef,
+  useLayoutEffect,
+} from "react";
+import axios from "axios";
+
+// https://www.youtube.com/watch?v=LlvBzyy-558
+
+const App = () => {
+  // const [counter, setCounter] = useState(0);
+
+  // const increment = () => {
+  //   setCounter(counter + 1);
+  // };
+
+  // return (
+  //   <>
+  //     {counter}
+  //     <button onClick={() => increment()}>214215432</button>
+  //   </>
+  // );
+
+  //   const [text, setText] = useState("Nig");
+
+  //   const updateInput = (event) => {
+  //     const newValue = event.target.value;
+  //     setText(newValue);
+  //   };
+
+  //   return (
+  //     <>
+  //       <input type="text" onChange={updateInput}></input>
+  //       {text}
+  //     </>
+  //   );
+  // };
+
+  // userReduceer słuzy do zarządzania wieloma stanami oraz pokonania problemu,
+  // kiedy to updatujac jeden stan, nieumyslnie updatujemy inny
+  // a zatem izolujemy nasza logike w komponecnie
+  // https://www.magicweb.pl/programowanie/react-hooks-usestate-czy-moze-usereducer/
+
+  //   const reducer = (state, action) => {
+  //     // patternem jest uzywanie switcha i na podstawie action wybierac co i jak
+  //     switch (action.type) {
+  //       case "INCREMENT":
+  //         return { count: state.count + 1, showText: state.showText };
+  //       case "toggleShowText":
+  //         return { count: state.count, showText: !state.showText };
+  //       default:
+  //         return state;
+  //     }
+  //   };
+
+  //   const [state, dispatch] = useReducer(reducer, {
+  //     count: 0,
+  //     showText: true,
+  //   });
+
+  //   return (
+  //     <>
+  //       {/* <h1>{count}</h1> */}
+  //       <h1>{state.count}</h1>
+  //       <button
+  //         onClick={() => {
+  //           // setCount(count + 1);
+  //           // setShowText(!showText);
+  //           dispatch({ type: "INCREMENT" });
+  //           dispatch({ type: "toggleShowText" });
+  //         }}
+  //       >
+  //         64564564
+  //       </button>
+  //       {/* {showText && <p>This is a tet</p>} */}
+  //       {state.showText && <p>This is a text</p>}
+  //     </>
+  //   );
+  // };
+
+  // https://typeofweb.com/react-hooks-useeffect-efekty-uboczne-w-komponencie
+
+  // const [data, setData] = useState("");
+
+  // useEffect(() => {
+  //   axios
+  //     .get("https://jsonplaceholder.typicode.com/comments")
+  //     .then((response) => {
+  //       setData(response.data[0].email);
+  //       console.log("API WAS CALLED");
+  //     });
+  // }, []);
+
+  // return <>123 {data}</>;
+
+  // dzieki useRef mozemy legalnie i poprawnie manipulowac DOMem
+  // a edytowanie przez ref nie powoduje rerenderowania
+  // https://love-coding.pl/hooki-react-useref-tutorial/
+  // algosmart.pl/czym-sa-react-hooks
+
+  //   const inputRef = useRef(null);
+
+  //   const onClick = () => {
+  //     // console.log(inputRef.current.value);
+  //     // inputRef.current.focus();
+  //     inputRef.current.value = "";
+  //   };
+
+  //   return (
+  //     <>
+  //       <h1>The Nig</h1>
+  //       <input type="text" placeholder="ex..." ref={inputRef}></input>
+  //       <button onClick={onClick}>Change Name</button>
+  //     </>
+  //   );
+
+  // uselayout jest szybszy niz useeffect, bo useeffect tak szybko renderuje ze nie widac
+  // useeffekt wykonuje sie po pokazaniu klientowi zawartosci strony,
+  // a uselayout przed
+
+  useEffect(() => {
+    console.log(`useEffect`);
+  }, []);
+
+  useLayoutEffect(() => {
+    console.log(`useLayoutEffect`);
+  }, []);
+
+  return <></>;
+};
+
+export default App;
