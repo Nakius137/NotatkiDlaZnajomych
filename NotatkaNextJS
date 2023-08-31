@@ -1,0 +1,34 @@
+1. Renderowanie w next'ie sklada się na renderowanie po stronie serwera (które odbywa sie w folderze app) i po stornie klienta (które odbywa sie w folderze pages)
+2. Segment to route w url np localhost:3000/dashboard, to dashboard jest segmentem
+3. Konstrukcja folderów w next'ie tworzy drzewko, któe to składa się z głównego roota, nastepnie z subroota, i liści. To, co charakteryzuje, że dany segment jest liściem, jest brak nastepnego child komponentu
+4. Zagnieżdzone routy to np localhost:3000/dashboard/pages 
+5. Na każdy segment next daje wbudowane komponenty z określonym zachowaniem, tj. load, error
+6. Kolokacja oznacza, ze dostepnymi publicznie (dla uzytkownika) segmentami, bede tylko te, ktore jako swoje dziecko maja page.js lub route.js
+7. Layout musi być w rootcie i miec wtedy zadeklarowanego html'a. W niższych segmentach jest on dobrowolny. Layout, jak sama nazwa wskazuje, odpowaida za role szabolnu dla naszych komponentow. Oznacza to że 
+	a) jest on zawsze komponentem serwerowym
+	b) automatycznie wrapuje on nasz plik page.js jako child
+8. Istnieją dwie opcje prouszania się w next'ie
+	a) za pomocą komponentu <Link />
+	b) za pomocą hooku useRouter (działa on w komponencie klienta)
+9. Komponent <Link /> działa na zasadzie <a>, a hook ma swoje metody (sluzy on bardziej do funkcji)
+10. Next używa dwóch rodzajów nawigacji, tj. soft - która polega na odwołaniu się do wbudowanego cache'u i hard - która polega na ponownym zapytaniu serwera o zasób.
+11. usePathNname() służy do sprawdzenia obecnego segmentu
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. folder z nazwa w nawiasach np (shop) sluzy wylacznie do podzialu logicznego (route groups) i kompilator go nie wykryje
+2. folder z podzilem logicznym moga miec swoje wlasne layouty
+3. dynamiczne segmenty deklarujemy za pomoca tablicowych nawiasow np. /shop/[categoryId]/products. Aby dać wszystkie póxnijesze dajemy [...categoryId], a aby opcjonalne to [[categoryId]]. Dzialaja one jak queryparams
+4. aby stworzyc efekt loading, kiedy jest wywolywane zapytanie, tworzymy w tym samym poziomie plik loading.js
+5. Streaming dziala na zasadzie podzielenia calej zawartosci na male chunky, ktorymi mozna ustanowic priorytet, dzieki temu te wazniejsze komponety szybciej zostana zaladowane po stronie klienta
+6. plik error.js i global-error.js zajmuja sie pilnowaniem porzadku. Z racji, że komponent layout w danym folderze jest zawsze na samej gorze, a dopiero po nim jest komponent error, aby error.js dzialal na layout, musi on byc w hierachi parentu'u naszego layouta. A tak to error zamyka i obsluguje reszte komponentow pod soba. Aby nasz root byl obslugiwany, trzeba uzyc global-error.js. Konwencja pliku to console.log z bledem, informacja tekstowa o bledzie i przycisk z rerenderem strony
+7. paraller routing dziala na zasadzie renderowania paru stron na jednym segmencie
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1.Intercepting pozwala na wygenerowanie strony na poprzedniej stronie, zachowujac jej context - dzialanie zdjec na profilu instagrama
+2.Route handlers dzialaja jako middlewary, ktore wykonuja sie przed wykonaniem strony w celu API. Ich struktora jest oparta
+na app/api/[..segment]/route.js. Jedyne nazwy funkcji jakie przyjmuja to uppercase metod HTTP
+3.Middlewary definiowane sa w rootcie, i w configu ustalamy ich match case, czyli pod jakim segmentem maja sie wykonac
+
+
