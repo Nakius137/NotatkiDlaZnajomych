@@ -31,4 +31,14 @@
 na app/api/[..segment]/route.js. Jedyne nazwy funkcji jakie przyjmuja to uppercase metod HTTP
 3.Middlewary definiowane sa w rootcie, i w configu ustalamy ich match case, czyli pod jakim segmentem maja sie wykonac
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Fetch w nextie ma różne opcje, m.in możliwość cacheowania danych i dodawnia do nich tagów
+2. Uzywasz fetcha glownie w komponentach serwerowych
+3. Gdy robisz to z pozycji komponentu klienta, używasz route handler
+4. Istnieją trzy rodzaje fetchowania danych
+	- sekwencyjnie, zazwyczaj zachodzi ono w zagniezdzonych komponentach, gdzie propsy childow sa zalezne od propsow parentow
+	- paraboliczne (?), gdzie definujesz fetcha poza komponentem i w nim samym tylko wywolujesz te funkcje, ale wtedy dane moge nie przyjsc na czas, gdy strona juz sie wyrenderuje 
+	- preload
+5. Server Actions pozwalają ci przełamać ograniczenia, jak np jedem form na jeden endpoint lub manipulacja danymi. Przy czym pomimo nazwy, mogą one również być używane w komponencie klienta. Trzeba użyć 'use server'
 
